@@ -1,0 +1,50 @@
+# port
+server:
+  port: 8088
+
+# configure logging of the generated SQL statements
+logging:
+  level:
+    root: info
+    com.cs4: DEBUG
+    org.springframework.jdbc.core: DEBUG
+
+# database
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql5703.mysql.database.azure.com:3306/cs4?serverTimezone=UTC
+    username: admin5703
+    password: Password5703
+    hikari:
+      pool-name: DateHikariCP
+      minimum-idle: 5
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      auto-commit: true
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+# Mybatis
+mybatis:
+  type-aliases-package: com.cs4.springboot.domain
+  config-location: classpath:mybatis.xml
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+# Mybatis plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
+
+
+
+
+
